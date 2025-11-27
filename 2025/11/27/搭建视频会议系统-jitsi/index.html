@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=auto>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
@@ -16,24 +16,26 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="John Doe">
+  <meta name="author" content="唐建宝">
   <meta name="keywords" content="">
   
     <meta name="description" content="今天我们搭建一套开源的视频会议系统jitsi，让你拥有自己的视频会议系统。 一、Jitsi 介绍Jitsi是一款开源的视频会议服务，允许用户通过网络进行实时音视频通话、文本聊天以及屏幕共享等功能。Jitsi Meet 是 Jitsi 项目的一个子项目，专注于提供简单易用的在线会议解决方案，其主要优点包括：  开源免费：Jitsi Meet完全开源，用户可以免费使用，甚至可以根据自身需求对其进行定制">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建视频会议系统-jitsi">
 <meta property="og:url" content="http://example.com/2025/11/27/%E6%90%AD%E5%BB%BA%E8%A7%86%E9%A2%91%E4%BC%9A%E8%AE%AE%E7%B3%BB%E7%BB%9F-jitsi/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="技术博客">
 <meta property="og:description" content="今天我们搭建一套开源的视频会议系统jitsi，让你拥有自己的视频会议系统。 一、Jitsi 介绍Jitsi是一款开源的视频会议服务，允许用户通过网络进行实时音视频通话、文本聊天以及屏幕共享等功能。Jitsi Meet 是 Jitsi 项目的一个子项目，专注于提供简单易用的在线会议解决方案，其主要优点包括：  开源免费：Jitsi Meet完全开源，用户可以免费使用，甚至可以根据自身需求对其进行定制">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/meetvideo.jpg">
 <meta property="article:published_time" content="2025-11-27T07:22:36.000Z">
-<meta property="article:modified_time" content="2025-11-27T07:25:07.689Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:modified_time" content="2025-11-27T09:46:46.191Z">
+<meta property="article:author" content="唐建宝">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/images/meetvideo.jpg">
   
   
   
-  <title>搭建视频会议系统-jitsi - Hexo</title>
+  <title>搭建视频会议系统-jitsi - 技术博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -97,7 +99,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>Fluid</strong>
+      <strong>唐建宝的技术博客</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -117,7 +119,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
-                <span>Home</span>
+                <span>首页</span>
               </a>
             </li>
           
@@ -129,7 +131,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
-                <span>Archives</span>
+                <span>归档</span>
               </a>
             </li>
           
@@ -141,7 +143,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
-                <span>Categories</span>
+                <span>分类</span>
               </a>
             </li>
           
@@ -153,7 +155,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
-                <span>Tags</span>
+                <span>标签</span>
               </a>
             </li>
           
@@ -165,7 +167,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
-                <span>About</span>
+                <span>关于</span>
               </a>
             </li>
           
@@ -211,7 +213,7 @@
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
         <time datetime="2025-11-27 15:22" pubdate>
-          November 27, 2025 pm
+          2025年11月27日 下午
         </time>
       </span>
     
@@ -222,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.8k words
+          2.8k 字
         
       </span>
     
@@ -233,7 +235,7 @@
         
         
         
-          24 mins
+          24 分钟
         
       </span>
     
@@ -287,47 +289,37 @@
 <li>Jitsi Meet 基于<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/WebRTC">WebRTC ，</a>_<strong>需要</strong>加密通信链接（https）才能获得有效的多媒体</li>
 </ul>
 <p>源码地址：<a target="_blank" rel="noopener" href="https://github.com/jitsi/jitsi-meet">https://github.com/jitsi/jitsi-meet</a></p>
-<p>二：安装</p>
-<p>搭建日期：20251015，如果本教程有什么问题，请邮件联系作者：<a href="mailto:&#x6d;&#x79;&#x61;&#105;&#x31;&#x32;&#49;&#x36;&#x39;&#57;&#x40;&#x67;&#109;&#x61;&#105;&#108;&#46;&#x63;&#111;&#x6d;">myai121699@gmail.com</a></p>
+<h2 id="二：安装"><a href="#二：安装" class="headerlink" title="二：安装"></a>二：安装</h2><p>搭建日期：20251015，如果本教程有什么问题，请邮件联系作者：<a href="mailto:&#109;&#121;&#97;&#105;&#49;&#50;&#49;&#x36;&#x39;&#x39;&#x40;&#103;&#109;&#x61;&#105;&#x6c;&#46;&#x63;&#111;&#x6d;">myai121699@gmail.com</a></p>
 <p>推荐使用Jitsi 的Docker版本进行安装<br>Docker版本地址：<a target="_blank" rel="noopener" href="https://github.com/jitsi/docker-jitsi-meet">https://github.com/jitsi/docker-jitsi-meet</a><br>Docker版本安装手册：<a target="_blank" rel="noopener" href="https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker/">https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker/</a></p>
 <p>说明下面的命令，请添加 sudo （当然默认是root登录系统，就不用添加sudo,请注意）</p>
-<p>2.1、安装 Docker<br>由于是基于Docker安装，那首先必须安装Docker 。</p>
-<p>下面是基于ubuntu24.04版本上安装：<br>安装步骤：<br>2.1.1、更新apt 列表</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">sudo apt-<span class="hljs-keyword">get</span> <span class="hljs-keyword">update</span>   <br>sudo apt <span class="hljs-keyword">update</span> <br>下面这个语句，如果第一次执行不成功，再次或多次执行。<br>sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key <span class="hljs-keyword">add</span> -<br><br>返回结果： <br><span class="hljs-built_in">Warning</span>: apt-key <span class="hljs-keyword">is</span> deprecated. Manage keyring files <span class="hljs-keyword">in</span> <span class="hljs-keyword">trusted</span>.gpg.d <span class="hljs-keyword">instead</span> (see apt-key(<span class="hljs-number">8</span>)).<br>OK<br><br>下面这个语句，如果第一次执行不成功，再次或多次执行<br><br>sudo <span class="hljs-keyword">add</span>-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) \ stable&quot; <br></code></pre></td></tr></table></figure>
+<h3 id="2-1、安装-Docker"><a href="#2-1、安装-Docker" class="headerlink" title="2.1、安装 Docker"></a>2.1、安装 Docker</h3><p>由于是基于Docker安装，那首先必须安装Docker 。</p>
+<p>下面是基于ubuntu24.04版本上安装：<br>安装步骤：</p>
+<h4 id="2-1-1、更新apt-列表"><a href="#2-1-1、更新apt-列表" class="headerlink" title="2.1.1、更新apt 列表"></a>2.1.1、更新apt 列表</h4><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">sudo apt-<span class="hljs-keyword">get</span> <span class="hljs-keyword">update</span>   <br>sudo apt <span class="hljs-keyword">update</span> <br>下面这个语句，如果第一次执行不成功，再次或多次执行。<br>sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key <span class="hljs-keyword">add</span> -<br><br>返回结果： <br><span class="hljs-built_in">Warning</span>: apt-key <span class="hljs-keyword">is</span> deprecated. Manage keyring files <span class="hljs-keyword">in</span> <span class="hljs-keyword">trusted</span>.gpg.d <span class="hljs-keyword">instead</span> (see apt-key(<span class="hljs-number">8</span>)).<br>OK<br><br>下面这个语句，如果第一次执行不成功，再次或多次执行<br><br>sudo <span class="hljs-keyword">add</span>-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) \ stable&quot; <br></code></pre></td></tr></table></figure>
 
-<p>2.1.2、安装Docker社区版本</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">sudo apt-<span class="hljs-built_in">get</span> install docker-<span class="hljs-keyword">ce</span> docker-<span class="hljs-keyword">ce</span>-cli containerd.io -<span class="hljs-keyword">y</span><br></code></pre></td></tr></table></figure>
+<h4 id="2-1-2、安装Docker社区版本"><a href="#2-1-2、安装Docker社区版本" class="headerlink" title="2.1.2、安装Docker社区版本"></a>2.1.2、安装Docker社区版本</h4><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">sudo apt-<span class="hljs-built_in">get</span> install docker-<span class="hljs-keyword">ce</span> docker-<span class="hljs-keyword">ce</span>-cli containerd.io -<span class="hljs-keyword">y</span><br></code></pre></td></tr></table></figure>
 
-<p>2.1.3、设置<br>启动 Docker 服务并设置为开机自启：</p>
+<h4 id="2-1-3、设置"><a href="#2-1-3、设置" class="headerlink" title="2.1.3、设置"></a>2.1.3、设置</h4><p>启动 Docker 服务并设置为开机自启：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> systemctl <span class="hljs-built_in">enable</span> docker<br><span class="hljs-built_in">sudo</span> systemctl start docker<br></code></pre></td></tr></table></figure>
 
-<p>2.1.4、更新Docker 配置镜像源</p>
-<p>在国内使用 Docker 拉取镜像时，经常会遇到镜像源无法访问的问题，为了解决这一问题，下面将介绍如何配置镜像源，确保在国内快速稳定的下载镜像。（注：很多人，可能卡在这里这边，拉取失败，请直接复制下面的JSON内容，这个是作者亲测有效。）</p>
+<h4 id="2-1-4、更新Docker-配置镜像源"><a href="#2-1-4、更新Docker-配置镜像源" class="headerlink" title="2.1.4、更新Docker 配置镜像源"></a>2.1.4、更新Docker 配置镜像源</h4><p>在国内使用 Docker 拉取镜像时，经常会遇到镜像源无法访问的问题，为了解决这一问题，下面将介绍如何配置镜像源，确保在国内快速稳定的下载镜像。（注：很多人，可能卡在这里这边，拉取失败，请直接复制下面的JSON内容，这个是作者亲测有效。）</p>
 <p>通过上述步骤新安装的 Docker 一般存在文件<code>/etc/docker/</code>目录下，直接使用<code>nano  /etc/docker/daemon.json</code>进行创建并编辑，输入以下内容：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;max-concurrent-downloads&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">10</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;max-concurrent-uploads&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">5</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;default-shm-size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1G&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;debug&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;experimental&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;registry-mirrors&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>        <span class="hljs-string">&quot;https://x9r52uz5.mirror.aliyuncs.com&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://dockerhub.icu&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://docker.chenby.cn&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://docker.1panel.live&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://docker.awsl9527.cn&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://docker.anyhub.us.kg&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://docker.m.daocloud.io&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://dhub.kubesre.xyz&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://docker.nju.edu.cn&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://docker.mirrors.sjtug.sjtu.edu.cn&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://docker.mirrors.ustc.edu.cn&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://mirror.baidubce.com&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://dockerproxy.com&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://1i6z9fqv.mirror.aliyuncs.com&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://hub-mirror.c.163.com&quot;</span><br>    <span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
 <p> Ctrl+X, 然后按Y，敲回车，保存文件后重启 Docker 服务，新的镜像源即可生效：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">重新加载配置文件<br><span class="hljs-built_in">sudo</span> systemctl daemon-reload<br><br>重启docker（如果前面已经启动）<br><span class="hljs-built_in">sudo</span> systemctl restart docker<br><br>检查docker状态<br><span class="hljs-built_in">sudo</span> systemctl status docker<br><br>按 Ctrl + C 退出<br></code></pre></td></tr></table></figure>
 
 
-<p>2.1、下载Jitis Docker版本<br>参考官方地址：<a target="_blank" rel="noopener" href="https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker/">https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker/</a></p>
-<p>2.1.1、下载最新版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> wget $(wget -q -O - https://api.github.com/repos/jitsi/docker-jitsi-meet/releases/latest | grep zip | <span class="hljs-built_in">cut</span> -d\&quot; -f4)<br><br><span class="hljs-built_in">ls</span> 查看下载的文件<br>stable-10532-1<br></code></pre></td></tr></table></figure>
-<p>2.1.2、unzip解压 （如果没有安装unzip ,需要先安装zip 软件 命名： apt install unzip -y</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">unzip &lt;下载下来的文件名&gt;<br><br><span class="hljs-built_in">sudo</span> unzip stable-10532-1<br><br><span class="hljs-built_in">ls</span> 查看<br>jitsi-docker-jitsi-meet-995b0e4<br><br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">mv</span>  jitsi-docker-jitsi-meet-995b0e4 docker-jitsi-meet<br><br>切换到docker-jitsi-meet<br><span class="hljs-built_in">cd</span> docker-jitsi-meet/<br></code></pre></td></tr></table></figure>
-<p>2.1.3、在解压的文件夹里面,copy 文件，为.env，视频系统默认是读取.env，里面是系统配置参数。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cp</span> env.example .<span class="hljs-built_in">env</span><br></code></pre></td></tr></table></figure>
-<p>2.1.4、修改完配置参数，运行gen-passwords.sh,以便生产默认的密码。</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata">./<span class="hljs-keyword">gen</span>-passwords.<span class="hljs-keyword">sh</span><br></code></pre></td></tr></table></figure>
-<p>2.1.5、生成视频系统的配置目录（因为是基于Docker运行，这个配置目录可以理解为数据卷）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> -p ~/.jitsi-meet-cfg/&#123;web,transcripts,prosody/config,prosody/prosody-plugins-custom,jicofo,jvb,jigasi,jibri&#125;<br></code></pre></td></tr></table></figure>
-<p>2.1.6、运行Docker 启动服务 ,由于视频会议系统，存在多个服务，必须要通过docker compose 的方式启动服务，-d  表示服务以后台的方式启动。</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker compose up -d</span><br></code></pre></td></tr></table></figure>
+<h3 id="2-2、下载Jitis-Docker版本"><a href="#2-2、下载Jitis-Docker版本" class="headerlink" title="2.2、下载Jitis Docker版本"></a>2.2、下载Jitis Docker版本</h3><p>参考官方地址：<a target="_blank" rel="noopener" href="https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker/">https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker/</a></p>
+<h4 id="2-2-1、下载最新版本"><a href="#2-2-1、下载最新版本" class="headerlink" title="2.2.1、下载最新版本"></a>2.2.1、下载最新版本</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> wget $(wget -q -O - https://api.github.com/repos/jitsi/docker-jitsi-meet/releases/latest | grep zip | <span class="hljs-built_in">cut</span> -d\&quot; -f4)<br><br><span class="hljs-built_in">ls</span> 查看下载的文件<br>stable-10532-1<br></code></pre></td></tr></table></figure>
+<h4 id="2-2-2、unzip解压-（如果没有安装unzip-需要先安装zip-软件-命名：-apt-install-unzip-y"><a href="#2-2-2、unzip解压-（如果没有安装unzip-需要先安装zip-软件-命名：-apt-install-unzip-y" class="headerlink" title="2.2.2、unzip解压 （如果没有安装unzip ,需要先安装zip 软件 命名： apt install unzip -y"></a>2.2.2、unzip解压 （如果没有安装unzip ,需要先安装zip 软件 命名： apt install unzip -y</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">unzip &lt;下载下来的文件名&gt;<br><br><span class="hljs-built_in">sudo</span> unzip stable-10532-1<br><br><span class="hljs-built_in">ls</span> 查看<br>jitsi-docker-jitsi-meet-995b0e4<br><br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">mv</span>  jitsi-docker-jitsi-meet-995b0e4 docker-jitsi-meet<br><br>切换到docker-jitsi-meet<br><span class="hljs-built_in">cd</span> docker-jitsi-meet/<br></code></pre></td></tr></table></figure>
+<h4 id="2-2-3、在解压的文件夹里面-copy-文件，为-env，视频系统默认是读取-env，里面是系统配置参数。"><a href="#2-2-3、在解压的文件夹里面-copy-文件，为-env，视频系统默认是读取-env，里面是系统配置参数。" class="headerlink" title="2.2.3、在解压的文件夹里面,copy 文件，为.env，视频系统默认是读取.env，里面是系统配置参数。"></a>2.2.3、在解压的文件夹里面,copy 文件，为.env，视频系统默认是读取.env，里面是系统配置参数。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cp</span> env.example .<span class="hljs-built_in">env</span><br></code></pre></td></tr></table></figure>
+<h4 id="2-2-4、修改完配置参数，运行gen-passwords-sh-以便生产默认的密码。"><a href="#2-2-4、修改完配置参数，运行gen-passwords-sh-以便生产默认的密码。" class="headerlink" title="2.2.4、修改完配置参数，运行gen-passwords.sh,以便生产默认的密码。"></a>2.2.4、修改完配置参数，运行gen-passwords.sh,以便生产默认的密码。</h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata">./<span class="hljs-keyword">gen</span>-passwords.<span class="hljs-keyword">sh</span><br></code></pre></td></tr></table></figure>
+<h4 id="2-2-5、生成视频系统的配置目录（因为是基于Docker运行，这个配置目录可以理解为数据卷）"><a href="#2-2-5、生成视频系统的配置目录（因为是基于Docker运行，这个配置目录可以理解为数据卷）" class="headerlink" title="2.2.5、生成视频系统的配置目录（因为是基于Docker运行，这个配置目录可以理解为数据卷）"></a>2.2.5、生成视频系统的配置目录（因为是基于Docker运行，这个配置目录可以理解为数据卷）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> -p ~/.jitsi-meet-cfg/&#123;web,transcripts,prosody/config,prosody/prosody-plugins-custom,jicofo,jvb,jigasi,jibri&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="2-2-6、运行Docker-启动服务-由于视频会议系统，存在多个服务，必须要通过docker-compose-的方式启动服务，-d-表示服务以后台的方式启动。"><a href="#2-2-6、运行Docker-启动服务-由于视频会议系统，存在多个服务，必须要通过docker-compose-的方式启动服务，-d-表示服务以后台的方式启动。" class="headerlink" title="2.2.6、运行Docker 启动服务 ,由于视频会议系统，存在多个服务，必须要通过docker compose 的方式启动服务，-d  表示服务以后台的方式启动。"></a>2.2.6、运行Docker 启动服务 ,由于视频会议系统，存在多个服务，必须要通过docker compose 的方式启动服务，-d  表示服务以后台的方式启动。</h4><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker compose up -d</span><br></code></pre></td></tr></table></figure>
 
-<p>2.1.7、停止Docker 启动服务</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker compose down</span><br></code></pre></td></tr></table></figure>
+<h4 id="2-2-7、停止Docker-启动服务"><a href="#2-2-7、停止Docker-启动服务" class="headerlink" title="2.2.7、停止Docker 启动服务"></a>2.2.7、停止Docker 启动服务</h4><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker compose down</span><br></code></pre></td></tr></table></figure>
 
 
-<p>三、生产环境配置<br>上面的步骤，只是简单的让服务安装和启动服务。做一些简单测试，基本上就可以了，让后要在生产环境中使用，就要考虑到安全性，比如ssl 证书的配置，域名的配置，端口的配置。下面讲解一下<br>.env 的环境配置。这一部分，是视频系统能否实际使用的关键。<br>Jitsi 支持SIP服务接入，LDAP服务认证的配置，请根据实际情况自行配置。下面列配置，作者认为比较重要的配置，修改如下。还有下面的配置涉及到SSL证书申请，jitsi 支持向  Let’s Encrypt 申请证书。如果你实际中不需要向 Let’s Encrypt申请证书，关于 Let’s Encrypt部分的配置，可以不用修改。你可以购买证书，自己通过Nginx 反向代码，然后在Nginx中进行配置证书配置。（现在一下云服务商，比如阿里云，你购买域名，可以领取免费的证书，不过目前只支持3个月，3个月到期，就必须手工重新申请，然后将申请证书，重新上传到nginx 覆盖过期的证书）作者这里申请申请证书是免费的证书无需花钱。</p>
+<h2 id="三、生产环境配置"><a href="#三、生产环境配置" class="headerlink" title="三、生产环境配置"></a>三、生产环境配置</h2><p>上面的步骤，只是简单的让服务安装和启动服务。做一些简单测试，基本上就可以了，让后要在生产环境中使用，就要考虑到安全性，比如ssl 证书的配置，域名的配置，端口的配置。下面讲解一下<br>.env 的环境配置。这一部分，是视频系统能否实际使用的关键。<br>Jitsi 支持SIP服务接入，LDAP服务认证的配置，请根据实际情况自行配置。下面列配置，作者认为比较重要的配置，修改如下。还有下面的配置涉及到SSL证书申请，jitsi 支持向  Let’s Encrypt 申请证书。如果你实际中不需要向 Let’s Encrypt申请证书，关于 Let’s Encrypt部分的配置，可以不用修改。你可以购买证书，自己通过Nginx 反向代码，然后在Nginx中进行配置证书配置。（现在一下云服务商，比如阿里云，你购买域名，可以领取免费的证书，不过目前只支持3个月，3个月到期，就必须手工重新申请，然后将申请证书，重新上传到nginx 覆盖过期的证书）作者这里申请申请证书是免费的证书无需花钱。</p>
 <p>注意地方端口 80 和443 必须对外开放。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nano .<span class="hljs-built_in">env</span><br></code></pre></td></tr></table></figure>
 
@@ -337,28 +329,25 @@
 
 <p>然后保存，退出。</p>
 <p>重新启动</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker compose down<br>docker compose up -d<br>或 启动同时打开日志<br>docker compose up -d &amp;&amp; docker compose logs -f<br><br>启动后查看日志：<br>docker compose logs web<br><br>设置用户，显示容器名称<br>docker compose ps<br><br>比如列出其中之一<br>docker-jitsi-meet-prosody-1   jitsi/prosody:unstable   <span class="hljs-string">&quot;/init&quot;</span>   prosody   6 minutes ago   Up 6 minutes   5222/tcp, 5269/tcp, 5280/tcp, 5347/tcp<br><br>其中docker-jitsi-meet-prosody-1 ，就是要容器名称<br><br>进入容器命令<br>docker <span class="hljs-built_in">exec</span> -it docker-jitsi-meet-prosody-1 /bin/bash<br><br>添加用户 对应上面的配置修改为： ENABLE_AUTH=1<br>prosodyctl --config /config/prosody.cfg.lua register &lt;username&gt; meet.jitsi &lt;users-assigned-password&gt;<br><br>例子：<br>prosodyctl --config /config/prosody.cfg.lua register tjbai meet.jitsi tjbaitop564321<br><br><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker compose down<br>docker compose up -d<br>或 启动同时打开日志<br>docker compose up -d &amp;&amp; docker compose logs -f<br><br>启动后查看日志：<br>docker compose logs web<br><br>设置用户，显示容器名称<br>docker compose ps<br><br>比如列出其中之一<br>docker-jitsi-meet-prosody-1   jitsi/prosody:unstable   <span class="hljs-string">&quot;/init&quot;</span>   prosody   6 minutes ago   Up 6 minutes   5222/tcp, 5269/tcp, 5280/tcp, 5347/tcp<br><br>其中docker-jitsi-meet-prosody-1 ，就是要容器名称<br><br>进入容器命令<br>docker <span class="hljs-built_in">exec</span> -it docker-jitsi-meet-prosody-1 /bin/bash<br><br>添加用户 对应上面的配置修改为： ENABLE_AUTH=1<br>prosodyctl --config /config/prosody.cfg.lua register &lt;username&gt; meet.jitsi &lt;users-assigned-password&gt;<br><br>例子：<br>prosodyctl --config /config/prosody.cfg.lua register tjbai meet.jitsi tjbaitop123456<br><br><br></code></pre></td></tr></table></figure>
 
 
-<p>四、二次开发，修改页面 和图标：</p>
-<p>4.1、第一步创建：&#x2F;root&#x2F;docker-jitsi-meet 目录下创建  vim custom-interface_config.js</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-comment">// 修改主标题</span><br>interfaceConfig.APP_NAME = <span class="hljs-string">&#x27;星趣会议系统&#x27;</span>;<br>interfaceConfig.PROVIDER_NAME = <span class="hljs-string">&#x27;星趣会议系统&#x27;</span>;<br>interfaceConfig.DEFAULT_WELCOME_PAGE_LOGO_URL =<span class="hljs-string">&#x27;https://www.tjbai.com/static/Home/image/logo.png&#x27;</span>;<br>interfaceConfig.JITSI_WATERMARK_LINK =<span class="hljs-string">&#x27;https://www.tjbai.com&#x27;</span>;<br><span class="hljs-comment">// 修改底部的手机APP下载连接</span><br>interfaceConfig.MOBILE_DOWNLOAD_LINK_ANDROID = <span class="hljs-string">&#x27;https://www.tjbai.com/upload/JitsiMeet.apk&#x27;</span>;<br>interfaceConfig.MOBILE_DOWNLOAD_LINK_F_DROID = <span class="hljs-string">&#x27;https://www.tjbai.com/upload/JitsiMeet.apk&#x27;</span>;<br><span class="hljs-comment">// 添加新副标题（可选）</span><br><span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">&#x27;DOMContentLoaded&#x27;</span>, () =&gt; &#123;<br>  <span class="hljs-keyword">const</span> subtitle = <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">&#x27;.header-text-subtitle&#x27;</span>);<br>  <span class="hljs-keyword">const</span> subtitle2 = <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">&#x27;.header-text-title&#x27;</span>);<br>  <span class="hljs-keyword">const</span> subtitle3 = <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelectorAll</span>(<span class="hljs-string">&#x27;.watermark.leftwatermark.no-margin&#x27;</span>);<br>  <span class="hljs-keyword">const</span> subtitle4 = <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">&#x27;.welcome-footer-row-1-text&#x27;</span>);<br>  <span class="hljs-keyword">if</span> (subtitle) subtitle.textContent = <span class="hljs-string">&#x27;安全且高品质的会议&#x27;</span>;<br><br>  <span class="hljs-keyword">if</span> (subtitle2) subtitle2.textContent = <span class="hljs-string">&#x27;星趣会议系统&#x27;</span>;<br>  <span class="hljs-keyword">if</span> (subtitle4) subtitle4.textContent = <span class="hljs-string">&#x27;手机版APP – 下载我们的APP，随时随地开始会议&#x27;</span>;<br>  <span class="hljs-keyword">if</span> (subtitle3.length&gt;<span class="hljs-number">0</span>)&#123;<br>                <span class="hljs-keyword">var</span> img = subtitle3[<span class="hljs-number">1</span>]<br>                img.style.width = <span class="hljs-string">&#x27;140px&#x27;</span>;<br>                img.style.height = <span class="hljs-string">&#x27;38px&#x27;</span>;<br>        &#125;<br><br>&#125;);<br><span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">&#x27;DOMContentLoaded&#x27;</span>, () =&gt; &#123;<br>        setTimeout(() =&gt; &#123;<br>  <span class="hljs-keyword">const</span> subtitle = <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">&#x27;.header-text-subtitle&#x27;</span>);<br>  <span class="hljs-keyword">const</span> subtitle2 = <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">&#x27;.header-text-title&#x27;</span>);<br>  <span class="hljs-keyword">const</span> subtitle4 = <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">&#x27;.welcome-footer-row-1-text&#x27;</span>);<br>        <span class="hljs-keyword">if</span> (subtitle) subtitle.textContent = <span class="hljs-string">&#x27;安全且高品质的会议&#x27;</span>;<br>          <span class="hljs-keyword">if</span> (subtitle2) subtitle2.textContent = <span class="hljs-string">&#x27;星趣会议系统&#x27;</span>;<br>    <span class="hljs-keyword">if</span> (subtitle4) subtitle4.textContent = <span class="hljs-string">&#x27;手机版APP – 下载我们的APP，随时随地开始会议&#x27;</span>;<br><span class="hljs-comment">//     // 获取所有带有类名&#x27;welcome-badge&#x27;的元素</span><br><span class="hljs-comment">// var badges = document.querySelectorAll(&#x27;.welcome-badge&#x27;);</span><br><span class="hljs-comment">// // 检查是否至少有两个这样的元素</span><br><span class="hljs-comment">// if (badges.length &gt;= 2) &#123;</span><br><span class="hljs-comment">//     // 获取第二个元素的第一个（也是唯一的）img元素</span><br><span class="hljs-comment">//     var imgElement = badges[1].querySelector(&#x27;img&#x27;);</span><br><span class="hljs-comment">//     // 检查是否找到了img元素</span><br><span class="hljs-comment">//     if (imgElement) &#123;</span><br><span class="hljs-comment">//         // 修改src属性</span><br><span class="hljs-comment">//         imgElement.src = &#x27;https://hotxf.com/static/Home/image/logo.png&#x27;;</span><br><span class="hljs-comment">//     &#125;</span><br><span class="hljs-comment">// &#125;</span><br>        &#125;, <span class="hljs-number">2000</span>);  <span class="hljs-comment">// 延迟确保DOM加载完成</span><br>&#125;);<br><br></code></pre></td></tr></table></figure>
+<h2 id="四、二次开发，修改页面-和图标："><a href="#四、二次开发，修改页面-和图标：" class="headerlink" title="四、二次开发，修改页面 和图标："></a>四、二次开发，修改页面 和图标：</h2><h3 id="4-1、第一步创建：-root-docker-jitsi-meet-目录下创建-vim-custom-interface-config-js"><a href="#4-1、第一步创建：-root-docker-jitsi-meet-目录下创建-vim-custom-interface-config-js" class="headerlink" title="4.1、第一步创建：&#x2F;root&#x2F;docker-jitsi-meet 目录下创建  vim custom-interface_config.js"></a>4.1、第一步创建：&#x2F;root&#x2F;docker-jitsi-meet 目录下创建  vim custom-interface_config.js</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-comment">// 修改主标题</span><br>interfaceConfig.APP_NAME = <span class="hljs-string">&#x27;星趣会议系统&#x27;</span>;<br>interfaceConfig.PROVIDER_NAME = <span class="hljs-string">&#x27;星趣会议系统&#x27;</span>;<br>interfaceConfig.DEFAULT_WELCOME_PAGE_LOGO_URL =<span class="hljs-string">&#x27;https://www.tjbai.com/static/Home/image/logo.png&#x27;</span>;<br>interfaceConfig.JITSI_WATERMARK_LINK =<span class="hljs-string">&#x27;https://www.tjbai.com&#x27;</span>;<br><span class="hljs-comment">// 修改底部的手机APP下载连接</span><br>interfaceConfig.MOBILE_DOWNLOAD_LINK_ANDROID = <span class="hljs-string">&#x27;https://www.tjbai.com/upload/JitsiMeet.apk&#x27;</span>;<br>interfaceConfig.MOBILE_DOWNLOAD_LINK_F_DROID = <span class="hljs-string">&#x27;https://www.tjbai.com/upload/JitsiMeet.apk&#x27;</span>;<br><span class="hljs-comment">// 添加新副标题（可选）</span><br><span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">&#x27;DOMContentLoaded&#x27;</span>, () =&gt; &#123;<br>  <span class="hljs-keyword">const</span> subtitle = <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">&#x27;.header-text-subtitle&#x27;</span>);<br>  <span class="hljs-keyword">const</span> subtitle2 = <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">&#x27;.header-text-title&#x27;</span>);<br>  <span class="hljs-keyword">const</span> subtitle3 = <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelectorAll</span>(<span class="hljs-string">&#x27;.watermark.leftwatermark.no-margin&#x27;</span>);<br>  <span class="hljs-keyword">const</span> subtitle4 = <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">&#x27;.welcome-footer-row-1-text&#x27;</span>);<br>  <span class="hljs-keyword">if</span> (subtitle) subtitle.textContent = <span class="hljs-string">&#x27;安全且高品质的会议&#x27;</span>;<br><br>  <span class="hljs-keyword">if</span> (subtitle2) subtitle2.textContent = <span class="hljs-string">&#x27;星趣会议系统&#x27;</span>;<br>  <span class="hljs-keyword">if</span> (subtitle4) subtitle4.textContent = <span class="hljs-string">&#x27;手机版APP – 下载我们的APP，随时随地开始会议&#x27;</span>;<br>  <span class="hljs-keyword">if</span> (subtitle3.length&gt;<span class="hljs-number">0</span>)&#123;<br>                <span class="hljs-keyword">var</span> img = subtitle3[<span class="hljs-number">1</span>]<br>                img.style.width = <span class="hljs-string">&#x27;140px&#x27;</span>;<br>                img.style.height = <span class="hljs-string">&#x27;38px&#x27;</span>;<br>        &#125;<br><br>&#125;);<br><span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">&#x27;DOMContentLoaded&#x27;</span>, () =&gt; &#123;<br>        setTimeout(() =&gt; &#123;<br>  <span class="hljs-keyword">const</span> subtitle = <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">&#x27;.header-text-subtitle&#x27;</span>);<br>  <span class="hljs-keyword">const</span> subtitle2 = <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">&#x27;.header-text-title&#x27;</span>);<br>  <span class="hljs-keyword">const</span> subtitle4 = <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">&#x27;.welcome-footer-row-1-text&#x27;</span>);<br>        <span class="hljs-keyword">if</span> (subtitle) subtitle.textContent = <span class="hljs-string">&#x27;安全且高品质的会议&#x27;</span>;<br>          <span class="hljs-keyword">if</span> (subtitle2) subtitle2.textContent = <span class="hljs-string">&#x27;星趣会议系统&#x27;</span>;<br>    <span class="hljs-keyword">if</span> (subtitle4) subtitle4.textContent = <span class="hljs-string">&#x27;手机版APP – 下载我们的APP，随时随地开始会议&#x27;</span>;<br><span class="hljs-comment">//     // 获取所有带有类名&#x27;welcome-badge&#x27;的元素</span><br><span class="hljs-comment">// var badges = document.querySelectorAll(&#x27;.welcome-badge&#x27;);</span><br><span class="hljs-comment">// // 检查是否至少有两个这样的元素</span><br><span class="hljs-comment">// if (badges.length &gt;= 2) &#123;</span><br><span class="hljs-comment">//     // 获取第二个元素的第一个（也是唯一的）img元素</span><br><span class="hljs-comment">//     var imgElement = badges[1].querySelector(&#x27;img&#x27;);</span><br><span class="hljs-comment">//     // 检查是否找到了img元素</span><br><span class="hljs-comment">//     if (imgElement) &#123;</span><br><span class="hljs-comment">//         // 修改src属性</span><br><span class="hljs-comment">//         imgElement.src = &#x27;https://www.xxxx.com/static/Home/image/logo.png&#x27;;</span><br><span class="hljs-comment">//     &#125;</span><br><span class="hljs-comment">// &#125;</span><br>        &#125;, <span class="hljs-number">2000</span>);  <span class="hljs-comment">// 延迟确保DOM加载完成</span><br>&#125;);<br><br></code></pre></td></tr></table></figure>
 
-<p>4.2、第二步：vim docker-compose.yml<br>添加下面这 句话到 volumes （数据卷段中）</p>
+<h3 id="4-2、第二步：vim-docker-compose-yml"><a href="#4-2、第二步：vim-docker-compose-yml" class="headerlink" title="4.2、第二步：vim docker-compose.yml"></a>4.2、第二步：vim docker-compose.yml</h3><p>添加下面这 句话到 volumes （数据卷段中）</p>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">~/docker-jitsi-meet/custom-<span class="hljs-built_in">int</span>erface_config.js:/config/custom-<span class="hljs-built_in">int</span>erface_config.js:ro<br></code></pre></td></tr></table></figure>
 
 
-<p>![[Pasted image 20251015120931.png]]</p>
-<p>4.3、第三步： 重启服务</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs x86asm">docker compose <span class="hljs-meta">down</span><br>docker compose <span class="hljs-meta">up</span> -d<br></code></pre></td></tr></table></figure>
+<p><img src="/images/20251015120931.png" srcset="/img/loading.gif" lazyload alt="20251015120931.png"></p>
+<h3 id="4-3、第三步：-重启服务"><a href="#4-3、第三步：-重启服务" class="headerlink" title="4.3、第三步： 重启服务"></a>4.3、第三步： 重启服务</h3><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs x86asm">docker compose <span class="hljs-meta">down</span><br>docker compose <span class="hljs-meta">up</span> -d<br></code></pre></td></tr></table></figure>
 
 
 
 <p>到这里，一个高效的开源视频会议系统已经搭建成功。</p>
-<p><a target="_blank" rel="noopener" href="https://meet.tjbai.top/">https://meet.tjbai.top/</a></p>
-<p>![[Pasted image 20251015120432.png]]</p>
+<p><img src="/images/20251015120432.png" srcset="/img/loading.gif" lazyload alt="20251015120432.png"></p>
 <p>会议界面：</p>
-<p>![[Pasted image 20251015162632.png]]<br>总结：<br>  1、配置参数一定要修改对了，JVB_ADVERTISE_IPS&#x3D;8.148.220.65  这个配置参数的IP如果不正确，在主持人加入会议页面是无法成功的。<br>  2、如果想要通过 获取Let’s Encrypt 提供免费证书，请务必要设置 HTTPS的端口为 443，且国内<br>  域名一定要进行 ICP备案通过，不然每次都会失败，是因为，ECS服务器运营商会把 Let’s Encrypt的验证请求给拦截。<br>  3、如果是阿里云，腾讯云的端口80，443端口一下要开通。如果要涉及到SIP服务，还有开通SIP服务器的相关端口。</p>
+<p><img src="/images/20251015162632.png" srcset="/img/loading.gif" lazyload alt="20251015162632.png"></p>
+<h2 id="五、总结："><a href="#五、总结：" class="headerlink" title="五、总结："></a>五、总结：</h2><p>  1、配置参数一定要修改对了，JVB_ADVERTISE_IPS&#x3D;8.148.220.65  这个配置参数的IP如果不正确，在主持人加入会议页面是无法成功的。<br>  2、如果想要通过 获取Let’s Encrypt 提供免费证书，请务必要设置 HTTPS的端口为 443，且国内<br>  域名一定要进行 ICP备案通过，不然每次都会失败，是因为，ECS服务器运营商会把 Let’s Encrypt的验证请求给拦截。<br>  3、如果是阿里云，腾讯云的端口80，443端口一下要开通。如果要涉及到SIP服务，还有开通SIP服务器的相关端口。</p>
 
                 
               </div>
@@ -382,26 +371,26 @@
     <div class="license-meta">
       
         <div class="license-meta-item">
-          <div>Author</div>
-          <div>John Doe</div>
+          <div>作者</div>
+          <div>唐建宝</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
-          <div>Posted on</div>
-          <div>November 27, 2025</div>
+          <div>发布于</div>
+          <div>2025年11月27日</div>
         </div>
       
       
       
         <div class="license-meta-item">
-          <div>Licensed under</div>
+          <div>许可协议</div>
           <div>
             
               
               
                 <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
                     <i class="iconfont icon-cc-by"></i>
                   </span>
                 </a>
@@ -421,15 +410,15 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2025/11/27/hello-world/" title="Hello World">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/2025/11/17/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
-                        <span class="visible-mobile">Next</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>
@@ -448,7 +437,7 @@
     <div id="toc">
   <p class="toc-header">
     <i class="iconfont icon-list"></i>
-    <span>Table of Contents</span>
+    <span>目录</span>
   </p>
   <div class="toc-body" id="toc-body"></div>
 </div>
@@ -504,7 +493,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -512,7 +501,7 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -690,7 +679,7 @@
   
 
   <noscript>
-    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
 </body>
 </html>
