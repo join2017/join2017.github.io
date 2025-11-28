@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://join2017.github.io/images/meetvideo.jpg">
 <meta property="article:published_time" content="2025-11-27T07:22:36.000Z">
-<meta property="article:modified_time" content="2025-11-28T05:25:56.111Z">
+<meta property="article:modified_time" content="2025-11-28T06:02:34.243Z">
 <meta property="article:author" content="唐建宝">
 <meta property="article:tag" content="视频会议部署">
 <meta name="twitter:card" content="summary_large_image">
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.8k 字
+          2.9k 字
         
       </span>
     
@@ -290,7 +290,7 @@
 <li>Jitsi Meet 基于<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/WebRTC">WebRTC ，</a>_<strong>需要</strong>加密通信链接（https）才能获得有效的多媒体</li>
 </ul>
 <p>源码地址：<a target="_blank" rel="noopener" href="https://github.com/jitsi/jitsi-meet">https://github.com/jitsi/jitsi-meet</a></p>
-<h2 id="二：安装"><a href="#二：安装" class="headerlink" title="二：安装"></a>二：安装</h2><p>搭建日期：20251015，如果本教程有什么问题，请邮件联系作者：<a href="mailto:&#x6d;&#x79;&#x61;&#105;&#x31;&#x32;&#49;&#54;&#x39;&#x39;&#64;&#x67;&#109;&#97;&#105;&#108;&#x2e;&#x63;&#x6f;&#109;">myai121699@gmail.com</a></p>
+<h2 id="二：安装"><a href="#二：安装" class="headerlink" title="二：安装"></a>二：安装</h2><p>搭建日期：20251015，如果本教程有什么问题，请邮件联系作者：<a href="mailto:&#x6d;&#121;&#x61;&#x69;&#x31;&#50;&#49;&#x36;&#x39;&#57;&#64;&#103;&#x6d;&#x61;&#105;&#108;&#46;&#99;&#111;&#x6d;">myai121699@gmail.com</a></p>
 <p>推荐使用Jitsi 的Docker版本进行安装<br>Docker版本地址：<a target="_blank" rel="noopener" href="https://github.com/jitsi/docker-jitsi-meet">https://github.com/jitsi/docker-jitsi-meet</a><br>Docker版本安装手册：<a target="_blank" rel="noopener" href="https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker/">https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker/</a></p>
 <p>说明下面的命令，请添加 sudo （当然默认是root登录系统，就不用添加sudo,请注意）</p>
 <h3 id="2-1、安装-Docker"><a href="#2-1、安装-Docker" class="headerlink" title="2.1、安装 Docker"></a>2.1、安装 Docker</h3><p>由于是基于Docker安装，那首先必须安装Docker 。</p>
@@ -320,8 +320,8 @@
 <h4 id="2-2-7、停止Docker-启动服务"><a href="#2-2-7、停止Docker-启动服务" class="headerlink" title="2.2.7、停止Docker 启动服务"></a>2.2.7、停止Docker 启动服务</h4><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker compose down</span><br></code></pre></td></tr></table></figure>
 
 
-<h2 id="三、生产环境配置"><a href="#三、生产环境配置" class="headerlink" title="三、生产环境配置"></a>三、生产环境配置</h2><p>上面的步骤，只是简单的让服务安装和启动服务。做一些简单测试，基本上就可以了，让后要在生产环境中使用，就要考虑到安全性，比如ssl 证书的配置，域名的配置，端口的配置。下面讲解一下<br>.env 的环境配置。这一部分，是视频系统能否实际使用的关键。<br>Jitsi 支持SIP服务接入，LDAP服务认证的配置，请根据实际情况自行配置。下面列配置，作者认为比较重要的配置，修改如下。还有下面的配置涉及到SSL证书申请，jitsi 支持向  Let’s Encrypt 申请证书。如果你实际中不需要向 Let’s Encrypt申请证书，关于 Let’s Encrypt部分的配置，可以不用修改。你可以购买证书，自己通过Nginx 反向代码，然后在Nginx中进行配置证书配置。（现在一下云服务商，比如阿里云，你购买域名，可以领取免费的证书，不过目前只支持3个月，3个月到期，就必须手工重新申请，然后将申请证书，重新上传到nginx 覆盖过期的证书）作者这里申请申请证书是免费的证书无需花钱。</p>
-<p>注意地方端口 80 和443 必须对外开放。</p>
+<h2 id="三、生产环境配置"><a href="#三、生产环境配置" class="headerlink" title="三、生产环境配置"></a>三、生产环境配置</h2><p>上面的步骤，只是简单的让服务安装和启动服务。做一些简单测试，基本上就可以了，如果要在生产环境中使用，需要考虑到安全性，比如ssl证书的配置，域名的配置，端口的配置。下面讲解一下<br>.env 的环境配置。这一部分，是视频系统能否实际使用的关键。<br>Jitsi 支持SIP服务接入，LDAP服务认证的配置，请根据实际情况自行配置。下面列配置，作者认为比较重要的配置，修改如下。还有下面的配置涉及到SSL证书申请，jitsi 支持向  Let’s Encrypt 申请证书。如果你实际中不需要向 Let’s Encrypt申请证书，关于 Let’s Encrypt部分的配置，可以不用修改。你可以购买证书，自己通过Nginx 反向代码，然后在Nginx中进行配置证书配置。（现在一下云服务商，比如阿里云，你购买域名，可以领取免费的证书，不过目前只支持3个月，3个月到期，就必须手工重新申请，然后将申请证书，重新上传到nginx 覆盖过期的证书）作者这里申请申请证书是免费的证书无需花钱。</p>
+<p>注意端口 80 和443 必须对外开放。（在申请Let’s Encrypt免费证书的时候，端口 80 和443 必须对外开放,在申请证书成功后，可以修改会端口8000 和8443）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nano .<span class="hljs-built_in">env</span><br></code></pre></td></tr></table></figure>
 
 <p>配置文件部分内容：</p>
@@ -349,7 +349,7 @@
 <p><img src="/images/20251015120432.png" srcset="/img/loading.gif" lazyload alt="20251015120432.png"></p>
 <p>会议界面：</p>
 <p><img src="/images/20251015162632.png" srcset="/img/loading.gif" lazyload alt="20251015162632.png"></p>
-<h2 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h2><p>  1、配置参数一定要修改对了，JVB_ADVERTISE_IPS&#x3D;8.148.220.65  这个配置参数的IP如果不正确，在主持人加入会议页面是无法成功的。<br>  2、如果想要通过 获取Let’s Encrypt 提供免费证书，请务必要设置 HTTPS的端口为 443，且国内<br>  域名一定要进行 ICP备案通过，不然每次都会失败，是因为，ECS服务器运营商会把 Let’s Encrypt的验证请求给拦截。<br>  3、如果是阿里云，腾讯云的端口80，443端口一下要开通。如果要涉及到SIP服务，还有开通SIP服务器的相关端口。</p>
+<h2 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h2><p>  1、配置参数一定要修改对了，JVB_ADVERTISE_IPS&#x3D;8.148.220.65（这个IP要替换为你实际部署服务器IP地址。）  这个配置参数的IP如果不正确，在主持人加入会议页面是无法成功的。<br>  2、如果想要通过 获取Let’s Encrypt 提供免费证书，请务必要设置 HTTPS的端口为 443，且国内<br>  域名一定要进行ICP备案通过，不然每次都会失败，是因为ECS服务器运营商会把 Let’s Encrypt的验证请求给拦截。<br>  3、如果是阿里云，腾讯云的端口80，443端口一下要开通。如果要涉及到SIP服务，还有开通SIP服务器的相关端口。</p>
 
                 
               </div>
