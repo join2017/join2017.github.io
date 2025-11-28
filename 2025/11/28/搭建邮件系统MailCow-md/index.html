@@ -1,0 +1,692 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="唐建宝">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="今天我们将采用开源邮件系统MailCow部署私域邮件系统。 第一步 安装Docker搭建日期：20251015，如果本教程有什么问题，请邮件联系作者：tangjianbao@gmail.com 推荐使用Jitsi 的Docker版本进行安装Docker版本地址：https:&#x2F;&#x2F;github.com&#x2F;jitsi&#x2F;docker-jitsi-meetDocker版本安装手册：https:&#x2F;&#x2F;jitsi.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建邮件系统MailCow">
+<meta property="og:url" content="https://join2017.github.io/2025/11/28/%E6%90%AD%E5%BB%BA%E9%82%AE%E4%BB%B6%E7%B3%BB%E7%BB%9FMailCow-md/index.html">
+<meta property="og:site_name" content="技术博客">
+<meta property="og:description" content="今天我们将采用开源邮件系统MailCow部署私域邮件系统。 第一步 安装Docker搭建日期：20251015，如果本教程有什么问题，请邮件联系作者：tangjianbao@gmail.com 推荐使用Jitsi 的Docker版本进行安装Docker版本地址：https:&#x2F;&#x2F;github.com&#x2F;jitsi&#x2F;docker-jitsi-meetDocker版本安装手册：https:&#x2F;&#x2F;jitsi.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://join2017.github.io/images/mailsystem.jpg">
+<meta property="article:published_time" content="2025-11-28T08:08:48.000Z">
+<meta property="article:modified_time" content="2025-11-28T08:38:45.926Z">
+<meta property="article:author" content="唐建宝">
+<meta property="article:tag" content="邮件系统部署">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://join2017.github.io/images/mailsystem.jpg">
+  
+  
+  
+  <title>搭建邮件系统MailCow - 技术博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"join2017.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>唐建宝的技术博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/space.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="搭建邮件系统MailCow"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-11-28 16:08" pubdate>
+          2025年11月28日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          10 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">搭建邮件系统MailCow</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>今天我们将采用开源邮件系统MailCow部署私域邮件系统。</p>
+<h2 id="第一步-安装Docker"><a href="#第一步-安装Docker" class="headerlink" title="第一步 安装Docker"></a>第一步 安装Docker</h2><p>搭建日期：20251015，如果本教程有什么问题，请邮件联系作者：<a href="mailto:&#116;&#97;&#x6e;&#x67;&#106;&#105;&#x61;&#x6e;&#x62;&#97;&#x6f;&#x40;&#103;&#x6d;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;&#x6d;">tangjianbao@gmail.com</a></p>
+<p>推荐使用Jitsi 的Docker版本进行安装<br>Docker版本地址：<a target="_blank" rel="noopener" href="https://github.com/jitsi/docker-jitsi-meet">https://github.com/jitsi/docker-jitsi-meet</a><br>Docker版本安装手册：<a target="_blank" rel="noopener" href="https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker/">https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker/</a></p>
+<p>说明下面的命令，请添加 sudo （当然默认是root登录系统，就不用添加sudo,请注意）</p>
+<h3 id="2-1、安装-Docker"><a href="#2-1、安装-Docker" class="headerlink" title="2.1、安装 Docker"></a>2.1、安装 Docker</h3><p>由于是基于Docker安装，那首先必须安装Docker 。</p>
+<p>下面是基于ubuntu24.04版本上安装：<br>安装步骤：</p>
+<h4 id="2-1-1、更新apt-列表"><a href="#2-1-1、更新apt-列表" class="headerlink" title="2.1.1、更新apt 列表"></a>2.1.1、更新apt 列表</h4><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">sudo apt-<span class="hljs-keyword">get</span> <span class="hljs-keyword">update</span>   <br>sudo apt <span class="hljs-keyword">update</span> <br>下面这个语句，如果第一次执行不成功，再次或多次执行。<br>sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key <span class="hljs-keyword">add</span> -<br><br>返回结果： <br><span class="hljs-built_in">Warning</span>: apt-key <span class="hljs-keyword">is</span> deprecated. Manage keyring files <span class="hljs-keyword">in</span> <span class="hljs-keyword">trusted</span>.gpg.d <span class="hljs-keyword">instead</span> (see apt-key(<span class="hljs-number">8</span>)).<br>OK<br><br>下面这个语句，如果第一次执行不成功，再次或多次执行<br><br>sudo <span class="hljs-keyword">add</span>-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) \ stable&quot; <br></code></pre></td></tr></table></figure>
+
+<h4 id="2-1-2、安装Docker社区版本"><a href="#2-1-2、安装Docker社区版本" class="headerlink" title="2.1.2、安装Docker社区版本"></a>2.1.2、安装Docker社区版本</h4><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">sudo apt-<span class="hljs-built_in">get</span> install docker-<span class="hljs-keyword">ce</span> docker-<span class="hljs-keyword">ce</span>-cli containerd.io -<span class="hljs-keyword">y</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="2-1-3、设置"><a href="#2-1-3、设置" class="headerlink" title="2.1.3、设置"></a>2.1.3、设置</h4><p>启动 Docker 服务并设置为开机自启：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> systemctl <span class="hljs-built_in">enable</span> docker<br><span class="hljs-built_in">sudo</span> systemctl start docker<br><br>或使用一句命令，设置开机启动并启动Docker<br>systemctl <span class="hljs-built_in">enable</span> --now docker <br></code></pre></td></tr></table></figure>
+
+<h4 id="2-1-4、更新Docker-配置镜像源"><a href="#2-1-4、更新Docker-配置镜像源" class="headerlink" title="2.1.4、更新Docker 配置镜像源"></a>2.1.4、更新Docker 配置镜像源</h4><p>在国内使用 Docker 拉取镜像时，经常会遇到镜像源无法访问的问题，为了解决这一问题，下面将介绍如何配置镜像源，确保在国内快速稳定的下载镜像。（注：很多人，可能卡在这里这边，拉取失败，请直接复制下面的JSON内容，这个是作者亲测有效。）</p>
+<p>通过上述步骤新安装的 Docker 一般存在文件<code>/etc/docker/</code>目录下，直接使用<code>nano  /etc/docker/daemon.json</code>进行创建并编辑，输入以下内容：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;max-concurrent-downloads&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">10</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;max-concurrent-uploads&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">5</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;default-shm-size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1G&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;debug&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;experimental&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;registry-mirrors&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>        <span class="hljs-string">&quot;https://x9r52uz5.mirror.aliyuncs.com&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://dockerhub.icu&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://docker.chenby.cn&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://docker.1panel.live&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://docker.awsl9527.cn&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://docker.anyhub.us.kg&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://docker.m.daocloud.io&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://dhub.kubesre.xyz&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://docker.nju.edu.cn&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://docker.mirrors.sjtug.sjtu.edu.cn&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://docker.mirrors.ustc.edu.cn&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://mirror.baidubce.com&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://dockerproxy.com&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://1i6z9fqv.mirror.aliyuncs.com&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;https://hub-mirror.c.163.com&quot;</span><br>    <span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+<p> Ctrl+X, 然后按Y，敲回车，保存文件后重启 Docker 服务，新的镜像源即可生效：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">重新加载配置文件<br><span class="hljs-built_in">sudo</span> systemctl daemon-reload<br><br>重启docker（如果前面已经启动）<br><span class="hljs-built_in">sudo</span> systemctl restart docker<br><br>检查docker状态<br><span class="hljs-built_in">sudo</span> systemctl status docker<br><br>按 Ctrl + C 退出<br><br></code></pre></td></tr></table></figure>
+
+
+<h2 id="第二步-安装邮件服务器"><a href="#第二步-安装邮件服务器" class="headerlink" title="第二步 安装邮件服务器"></a>第二步 安装邮件服务器</h2><p>参考官方安装文档：<br><a target="_blank" rel="noopener" href="https://docs.mailcow.email/getstarted/install/#selinux-configuration-optional">https://docs.mailcow.email/getstarted/install/#selinux-configuration-optional</a></p>
+<h3 id="2-1、安装依赖"><a href="#2-1、安装依赖" class="headerlink" title="2.1、安装依赖"></a>2.1、安装依赖</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">apt <span class="hljs-keyword">install</span> -y git openssl curl gawk coreutils grep jq<br></code></pre></td></tr></table></figure>
+<h3 id="2-2、下载邮件服务器Docker版本"><a href="#2-2、下载邮件服务器Docker版本" class="headerlink" title="2.2、下载邮件服务器Docker版本"></a>2.2、下载邮件服务器Docker版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">su<br><span class="hljs-built_in">umask</span> 0022<br><span class="hljs-built_in">cd</span> /opt<br>下载邮件服务器Docker版本<br><span class="hljs-built_in">sudo</span> git <span class="hljs-built_in">clone</span> https://github.com/mailcow/mailcow-dockerized<br>如果上面的命令下载不了，就使用下面的链接进行下（国内的镜像）<br><span class="hljs-built_in">sudo</span> git <span class="hljs-built_in">clone</span> https://gitclone.com/github.com/mailcow/mailcow-dockerized<br><br><span class="hljs-built_in">cd</span> mailcow-dockerized<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-3、生产配置文件"><a href="#2-3、生产配置文件" class="headerlink" title="2.3、生产配置文件"></a>2.3、生产配置文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./generate_config.sh<br></code></pre></td></tr></table></figure>
+<h3 id="2-4、编辑配置文件"><a href="#2-4、编辑配置文件" class="headerlink" title="2.4、编辑配置文件"></a>2.4、编辑配置文件</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">nano</span> mailcow.conf<br></code></pre></td></tr></table></figure>
+<h3 id="2-5、拉取邮件组件并启动服务（注意这个地方可能拉取失败，要更新-Docker拉取列表）"><a href="#2-5、拉取邮件组件并启动服务（注意这个地方可能拉取失败，要更新-Docker拉取列表）" class="headerlink" title="2.5、拉取邮件组件并启动服务（注意这个地方可能拉取失败，要更新 Docker拉取列表）"></a>2.5、拉取邮件组件并启动服务（注意这个地方可能拉取失败，要更新 Docker拉取列表）</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker compose pull</span><br><span class="hljs-attribute">docker compose up -d</span><br><br></code></pre></td></tr></table></figure>
+<p>安装成功后的后台管理<br><a target="_blank" rel="noopener" href="https://43.136.70.183/?lang=zh-cn">https://43.136.70.183/?lang=zh-cn</a><br>（43.136.70.183 要替换你自己部署的服务器IP地址）<br>默认账号：admin<br>默认密码：moohoo<br><img src="/images/mailsystem-web.png" srcset="/img/loading.gif" lazyload alt="mailsystem-web.png"></p>
+<p>后台界面：<br><img src="/images/mailsystem-setting.png" srcset="/img/loading.gif" lazyload alt="mailsystem-setting.png"></p>
+<p>客户端页面：<br><img src="/images/mailsystem-clientlogin.png" srcset="/img/loading.gif" lazyload alt="mailsystem-clientlogin.png"></p>
+<p>邮件界面：</p>
+<p><img src="/images/mailsystem-sendweb.png" srcset="/img/loading.gif" lazyload alt="mailsystem-sendweb.png"></p>
+<h2 id="第三步-总结"><a href="#第三步-总结" class="headerlink" title="第三步 总结"></a>第三步 总结</h2><p>1、国内要设置Dcoker的配置镜像源，否则根本下载不了。<br>2、国内的各种云服务器提供商，要确定是否开放访问其他邮件服务器的25端口<br>         ，不然不上不了邮件。一般情况下默认都是关闭的，提交工单，要求开发。<br>         （腾讯云的轻服务规定是不开放的，只有购买ECS服务器（注意不是轻服务）要开放的，提交工单申请。阿里云也一样。你可以测试一下 telnet mx3.qq.com 25，看是否成功？你的写的邮件，是要通过25端口，提交到腾讯邮寄服务器的。）</p>
+<p>参考列表：<br>安装Docker<br>curl -sSL <a target="_blank" rel="noopener" href="https://get.docker.com/">https://get.docker.com/</a> | CHANNEL&#x3D;stable sh<br>systemctl enable –now docker</p>
+<p>官方安装链接：<br><a target="_blank" rel="noopener" href="https://docs.mailcow.email/getstarted/install/">https://docs.mailcow.email/getstarted/install/</a><br>安装详情<br><a target="_blank" rel="noopener" href="https://u.sb/docker-mailcow/">https://u.sb/docker-mailcow/</a><br>离线部署 MailCow邮件系统<br><a target="_blank" rel="noopener" href="https://www.mailabc.cn/blog/2024/07/10/docker-compose%E7%A6%BB%E7%BA%BF%E9%83%A8%E7%BD%B2mailcow/">https://www.mailabc.cn/blog/2024/07/10/docker-compose%E7%A6%BB%E7%BA%BF%E9%83%A8%E7%BD%B2mailcow/</a><br>在线部署MailCow邮件系统<br><a target="_blank" rel="noopener" href="https://www.mailabc.cn/blog/2024/07/07/mailcow-dockerized-install/">https://www.mailabc.cn/blog/2024/07/07/mailcow-dockerized-install/</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41577703/article/details/145573562">https://blog.csdn.net/qq_41577703/article/details/145573562</a><br>2025年邮件搭建（简单）<br><a target="_blank" rel="noopener" href="https://www.zwaxu.com/docker-mailcow/">https://www.zwaxu.com/docker-mailcow/</a><br>老外的邮件服务器搭建功能全<br><a target="_blank" rel="noopener" href="https://hatembentayeb.hashnode.dev/mailcow-setting-up-a-full-featured-self-hosted-mail-server">https://hatembentayeb.hashnode.dev/mailcow-setting-up-a-full-featured-self-hosted-mail-server</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E9%82%AE%E4%BB%B6%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2/" class="print-no-link">#邮件系统部署</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>搭建邮件系统MailCow</div>
+      <div>https://join2017.github.io/2025/11/28/搭建邮件系统MailCow-md/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>唐建宝</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年11月28日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/11/27/hello-world/" title="第一篇博客从Hello World开始">
+                        <span class="hidden-mobile">第一篇博客从Hello World开始</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'join2017/join2017.github.io');
+      s.setAttribute('issue-term', 'title');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
