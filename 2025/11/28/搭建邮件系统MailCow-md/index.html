@@ -19,19 +19,19 @@
   <meta name="author" content="唐建宝">
   <meta name="keywords" content="">
   
-    <meta name="description" content="今天我们将采用开源邮件系统MailCow部署私域邮件系统。 第一步 安装Docker搭建日期：20251015，如果本教程有什么问题，请邮件联系作者：tangjianbao@gmail.com 推荐使用Jitsi 的Docker版本进行安装Docker版本地址：https:&#x2F;&#x2F;github.com&#x2F;jitsi&#x2F;docker-jitsi-meetDocker版本安装手册：https:&#x2F;&#x2F;jitsi.">
+    <meta name="description" content="今天我们将采用开源邮件系统MailCow部署私域邮件系统。 第一步 安装Docker搭建日期：20251015，如果本教程有什么问题，请邮件联系作者：tangjianbao@gmail.com推荐使用Jitsi 的Docker版本进行安装Docker版本地址：https:&#x2F;&#x2F;github.com&#x2F;jitsi&#x2F;docker-jitsi-meetDocker版本安装手册：https:&#x2F;&#x2F;jitsi.g">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建邮件系统MailCow">
 <meta property="og:url" content="https://join2017.github.io/2025/11/28/%E6%90%AD%E5%BB%BA%E9%82%AE%E4%BB%B6%E7%B3%BB%E7%BB%9FMailCow-md/index.html">
 <meta property="og:site_name" content="技术博客">
-<meta property="og:description" content="今天我们将采用开源邮件系统MailCow部署私域邮件系统。 第一步 安装Docker搭建日期：20251015，如果本教程有什么问题，请邮件联系作者：tangjianbao@gmail.com 推荐使用Jitsi 的Docker版本进行安装Docker版本地址：https:&#x2F;&#x2F;github.com&#x2F;jitsi&#x2F;docker-jitsi-meetDocker版本安装手册：https:&#x2F;&#x2F;jitsi.">
+<meta property="og:description" content="今天我们将采用开源邮件系统MailCow部署私域邮件系统。 第一步 安装Docker搭建日期：20251015，如果本教程有什么问题，请邮件联系作者：tangjianbao@gmail.com推荐使用Jitsi 的Docker版本进行安装Docker版本地址：https:&#x2F;&#x2F;github.com&#x2F;jitsi&#x2F;docker-jitsi-meetDocker版本安装手册：https:&#x2F;&#x2F;jitsi.g">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://join2017.github.io/images/mailsystem-web.png">
 <meta property="og:image" content="https://join2017.github.io/images/mailsystem-setting.png">
 <meta property="og:image" content="https://join2017.github.io/images/mailsystem-clientlogin.png">
 <meta property="og:image" content="https://join2017.github.io/images/mailsystem-sendweb.png">
 <meta property="article:published_time" content="2025-11-28T08:08:48.000Z">
-<meta property="article:modified_time" content="2025-11-28T09:07:49.572Z">
+<meta property="article:modified_time" content="2025-11-28T09:20:42.303Z">
 <meta property="article:author" content="唐建宝">
 <meta property="article:tag" content="邮件系统部署">
 <meta name="twitter:card" content="summary_large_image">
@@ -282,8 +282,7 @@
               <div class="markdown-body">
                 
                 <p>今天我们将采用开源邮件系统MailCow部署私域邮件系统。</p>
-<h2 id="第一步-安装Docker"><a href="#第一步-安装Docker" class="headerlink" title="第一步 安装Docker"></a>第一步 安装Docker</h2><p>搭建日期：20251015，如果本教程有什么问题，请邮件联系作者：<a href="mailto:&#116;&#x61;&#110;&#103;&#106;&#105;&#97;&#110;&#x62;&#97;&#x6f;&#64;&#x67;&#109;&#x61;&#x69;&#108;&#46;&#99;&#x6f;&#x6d;">tangjianbao@gmail.com</a></p>
-<p>推荐使用Jitsi 的Docker版本进行安装<br>Docker版本地址：<a target="_blank" rel="noopener" href="https://github.com/jitsi/docker-jitsi-meet">https://github.com/jitsi/docker-jitsi-meet</a><br>Docker版本安装手册：<a target="_blank" rel="noopener" href="https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker/">https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker/</a></p>
+<h2 id="第一步-安装Docker"><a href="#第一步-安装Docker" class="headerlink" title="第一步 安装Docker"></a>第一步 安装Docker</h2><p>搭建日期：20251015，如果本教程有什么问题，请邮件联系作者：<a href="mailto:&#116;&#97;&#110;&#x67;&#106;&#105;&#97;&#x6e;&#98;&#x61;&#x6f;&#64;&#x67;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#x6d;">tangjianbao@gmail.com</a><br>推荐使用Jitsi 的Docker版本进行安装<br>Docker版本地址：<a target="_blank" rel="noopener" href="https://github.com/jitsi/docker-jitsi-meet">https://github.com/jitsi/docker-jitsi-meet</a><br>Docker版本安装手册：<a target="_blank" rel="noopener" href="https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker/">https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker/</a></p>
 <p>说明下面的命令，请添加 sudo （当然默认是root登录系统，就不用添加sudo,请注意）</p>
 <h3 id="2-1、安装-Docker"><a href="#2-1、安装-Docker" class="headerlink" title="2.1、安装 Docker"></a>2.1、安装 Docker</h3><p>由于是基于Docker安装，那首先必须安装Docker 。</p>
 <p>下面是基于ubuntu24.04版本上安装：<br>安装步骤：</p>
